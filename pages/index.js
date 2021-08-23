@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar';
 import Results from '../components/Results';
 import requests from '../utils/requests';
 
-export default function Home({ movies }) {
+export default function Home({ results }) {
   return (
     <div>
       <Head>
@@ -15,7 +15,7 @@ export default function Home({ movies }) {
 
       <Navbar />
 
-      <Results movies={movies} />
+      <Results results={results} />
     </div>
   );
 }
@@ -31,7 +31,7 @@ export async function getServerSideProps(context) {
 
   return {
     props: {
-      movies: request.results,
+      results: request.results,
     },
   };
 }
